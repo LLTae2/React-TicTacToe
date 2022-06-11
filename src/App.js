@@ -9,5 +9,3 @@ function App() {
 }
 
 export default App;
-//https://www.youtube.com/watch?v=it54tShOsuI
-//calculate winner 부터 시작하기
