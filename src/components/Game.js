@@ -1,34 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Board from './Board';
 import "../App.css";
 
 export default function Game(props) {
-  const [xIsNext, setXIsNext] = useState(0);
   const [stepNumber, setStepNumber] = useState(0);
+  const [xIsNext, setXIsNext] = useState(true);
   const [history, setHistory] = useState([
     { squares: Array(9).fill(null) }
   ]);
-  const jumpTo = (step) => {
+  const jumpTo = step => {
     setStepNumber(step);
     setXIsNext((step%2)===0);
   }
+  
   const handleClick = (i) => {
-    const history = state.history.slice(0, state.stepNumber+1);
+    const newHistory = history.slice(0, stepNumber+1);
     const current = history[history.length-1];
     const squares = current.squares.slice();
     const winner = calculateWinner(squares);
     if(winner || squares[i]) {
       return;
     }
-    squares[i] = state.xIsNext ? 'X' : 'O';
-    setHistory(history.concat(
-      squares(squares)
-    ));
-    setXIsNext(!state.xIsNext);
+    squares[i] = xIsNext ? 'X' : 'O';
+    setHistory(history.concat({
+      squares
+    }));
+    setXIsNext(!xIsNext);
     setStepNumber(history.length);
   }
-  const history = state.history;
-  const current = history[state.stepNumber];
+  //const history = history;
+  const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
   const moves = history.map((step, move) => {
     const desc = move ? 'Go to #' + move : 'Start the Game';
@@ -45,7 +46,7 @@ export default function Game(props) {
   if(winner){
     status = 'Winner is ' + winner;
   } else {
-    status = 'Next Player is ' + (state.xIsNext?'X':'O');
+    status = 'Next Player is ' + (xIsNext?'X':'O');
   }
 
   return (
