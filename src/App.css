@@ -1,42 +1,70 @@
+body {
+	background-color: rgb(185, 128, 239);
+}
 .square {  
-  background: rgb(144, 13, 205);
-  border: 5px solid rgb(75, 23, 123);
-  float: left;
-  /* margin-right: -1px;
-  margin-top: -1px; */
-  margin: 5px;
-  padding: 0;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  font-size: 45px;
-  font-weight: bold;
-  line-height: 100px;
+	background: rgb(144, 13, 205);
+	border: 5px solid rgb(75, 23, 123);
+	float: left;
+	/* margin-right: -1px;
+	margin-top: -1px; */
+	margin: 5px;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	font-size: 45px;
+	font-weight: bold;
+	line-height: 100px;
  }
  /* Board */
 .board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+	clear: both;
+	content: "";
+	display: table;
  }
  /* Game */
 .game {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;  
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;  
  }
  /* Game Info */
 ul {  /*  */
-  padding-left: 30px;
-  list-style: none;
- }
- .game-info {  /*  */
-  margin-left: 20px;
- }
- .status { /*  */
-  margin-bottom: 10px;
- }
+	padding-left: 30px;
+	list-style: none;
+}
+.game-info {  /* 게임 상태창 */
+	display: flex;
+	width: 150px;
+	height: 330px;
+	margin-left: 20px;
+	background-color: blueviolet;
+	border: 4px solid rgb(59, 11, 78);
+	flex-direction: column;
+	align-items: center;
+}
+.game-info h3 {
+
+}
+.game-info ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+.game-info button {	
+	margin: 4px;
+	background-color: rgb(207, 155, 255);
+	border: none;
+}
+
+.status { /*  */
+	margin-bottom: 10px;
+}
