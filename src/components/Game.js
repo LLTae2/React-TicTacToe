@@ -18,7 +18,6 @@ export default function Game(props) {
 		const current = history[history.length-1];
 		const squares = current.squares.slice();
 		const winner = calculateWinner(squares);
-		const draw = calculateDraw(squares); // 무승부
 		if(winner || squares[i]) {
 			return;
 		}
@@ -31,6 +30,7 @@ export default function Game(props) {
 	}
 	
 	const current = history[stepNumber];
+	const isDraw = calculateDraw(current.squares);
 	const winner = calculateWinner(current.squares);
 	const moves = history.map((step, move) => {
 		const desc = move ? 'Go to #' + move : 'Start the Game';
@@ -46,7 +46,9 @@ export default function Game(props) {
 	let status;
 	if(winner){
 		status = 'Winner is ' + winner;
-	} else {
+	} else if(isDraw){
+		status = 'Draw';
+ 	} else {
 		status = 'Next Player is ' + (xIsNext?'X':'O');
 	}
 
@@ -59,13 +61,20 @@ export default function Game(props) {
 		    <div className='game-info'>
 		    	<h3>{status}</h3>
 		    	<ul>{moves}</ul>
+				<button className='reset'>Reset</button>
 		    </div>
 		</div>
 	)
 }
 
 function calculateDraw(squares) { //무승부인지 아닌지를 계산하는 함수
-
+	if(!calculateWinner(squares)){
+		for(let i=0;i<8;i++){
+			if(squares[i])continue;
+			else return null;
+		}
+		return true;
+	}
 }
 
 function calculateWinner(squares) {
