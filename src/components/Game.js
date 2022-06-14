@@ -44,27 +44,35 @@ export default function Game(props) {
 	});
 
 	let status;
-	if(winner){
+	if(winner) {
 		status = 'Winner is ' + winner;
-	} else if(isDraw){
+	} else if(isDraw) {
 		status = 'Draw';
  	} else {
 		status = 'Next Player is ' + (xIsNext?'X':'O');
 	}
 
 	return (
-		<div className='game'>
-		    <div className="game-board">
-		        <Board onClick={(i)=>handleClick(i)}
-		        squares={current.squares}/>
-		    </div>
-		    <div className='game-info'>
-		    	<h3>{status}</h3>
-		    	<ul>{moves}</ul>
-				<button className='reset'>Reset</button>
-		    </div>
+		<div>
+			<h1 className='game-title'>Tic Tac Toe</h1>
+			<div className='game'>
+				<div className="game-board">
+					<Board onClick={(i)=>handleClick(i)}
+					squares={current.squares}/>
+				</div>
+				<div className='game-info'>
+					<h3 className='game-status'>{status}</h3>
+					<ul>{moves}</ul>
+					<button className='reset' onClick={onclick}>Reset</button>
+				</div>
+			</div>
 		</div>
-	)
+	);
+	
+}
+
+function onclick(){
+	window.location.replace("/");
 }
 
 function calculateDraw(squares) { //무승부인지 아닌지를 계산하는 함수
@@ -83,7 +91,7 @@ function calculateWinner(squares) {
 		[3, 4, 5],
 		[6, 7, 8],
 		[0, 3, 6],
-		[1, 4, 7],
+		[1, 4, 7],			
 		[2, 5, 8],
 		[0, 4, 8],
 		[2, 4, 6]
