@@ -1,12 +1,12 @@
-const express = requrie("express");
+const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const port = 3001;  // 3001포트 사용
-const route = require("./routes/index");
+const route = require("../client1");
 
-let http = require("http").createServer(app); //모듈 사용
-const io = require("cosket.io")(http);  //모듈 사용
+const http = require("http").createServer(app); //모듈 사용
+const io = require("socket.io")(http);  //모듈 사용
 
 app.use(bodyParser.json());
 
