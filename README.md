@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# React TicTacToe   (2110 이태현)
+
+웹 배포 : https://lltae2.github.io/React-TicTacToe/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
