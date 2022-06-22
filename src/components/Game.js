@@ -43,6 +43,14 @@ export default function Game(props) {
 		)
 	});
 
+	const onclick = () => {
+		setStepNumber(0);
+		setXIsNext(true);
+		setHistory([
+			{ squares: Array(9).fill(null) }
+		]);
+	}
+
 	let status;
 	if(winner) {
 		status = 'Winner is ' + winner;
@@ -69,11 +77,6 @@ export default function Game(props) {
 		</div>
 	);
 	
-}
-
-function onclick(){
-	
-	window.location.replace("/");
 }
 
 function calculateDraw(squares) { //무승부인지 아닌지를 계산하는 함수
