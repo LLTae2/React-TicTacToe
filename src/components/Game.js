@@ -72,6 +72,7 @@ export default function Game(props) {
 }
 
 function onclick(){
+	
 	window.location.replace("/");
 }
 
