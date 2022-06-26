@@ -1,7 +1,7 @@
 # React TicTacToe   (2110 이태현)
 
 웹 배포 : https://lltae2.github.io/React-TicTacToe/
-
+리엑트를 이용해서 만든 웹 게임입니다.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
